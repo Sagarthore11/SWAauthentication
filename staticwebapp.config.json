@@ -1,18 +1,1 @@
-{
-  "routes": [
-    {
-      "route": "/",
-      "allowedRoles": ["anonymous", "authenticated"]
-    }
-  ],
-  "auth": {
-    "identityProviders": {
-      "azureActiveDirectory": {
-        "registration": {
-          "openIdIssuer": "https://login.microsoftonline.com/16b3c013-d300-468d-ac64-7eda0820b6d3/v2.0",
-          "clientIdSettingName": "ba01213f-1075-486c-b745-84d3b4fa5bfe"
-        }
-      }
-    }
-  }
-}
+{"routes":[{"route":"/","allowedRoles":["anonymous","authenticated"]}]}
