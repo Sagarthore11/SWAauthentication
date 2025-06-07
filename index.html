@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Azure Static Web App - Microsoft Login</title>
+</head>
+<body>
+  <h1>Welcome to Static Web App</h1>
+  <div id="user-info"></div>
+
+  <button onclick="login()">Login with Microsoft</button>
+  <button onclick="logout()">Logout</button>
+
+  <script>
+    async function getUserInfo() {
+      const response = await fetch('/.auth/me');
+      const data = await response.json();
+
+      if (data.clientPrincipal) {
+        document.getElementById('user-info').innerHTML = `
+          <p>Logged in as: ${data.clientPrincipal.userDetails}</p>
+          <p>Roles: ${data.clientPrincipal.userRoles.join(', ')}</p>
+        `;
+      } else {
+        document.getElementById('user-info').innerHTML = '<p>You are not logged in.</p>';
+      }
+    }
+
+    function login() {
+      window.location.href = '/.auth/login/microsoft';
+    }
+
+    function logout() {
+      window.location.href = '/.auth/logout';
+    }
+
+    getUserInfo();
+  </script>
+</body>
+</html>
